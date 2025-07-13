@@ -5,12 +5,13 @@ def compute_metrics(df):
     df.columns = df.columns.str.strip()  # 🔥 removes any extra spaces
 
     # Rename columns for consistency
-    df = df.rename(columns={
-        'Timestamp': 'Date',
-        'Production Output (Units)': 'Units_Produced',
-        'Energy Consumption (kWh)': 'Energy_Used',
-        'Defect Rate (%)': 'Defect_Rate'
-    })
+df = df.rename(columns={
+    'Timestamp': 'Date',
+    'Production Output (Units)': 'Units_Produced',
+    'Energy Consumption (kWh)': 'Energy_Used',
+    'Defect Rate (%) ': 'Defect_Rate'  # <-- add the space!
+})
+
 
     # Convert data types
     df['Date'] = pd.to_datetime(df['Date'])
