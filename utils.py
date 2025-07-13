@@ -1,7 +1,9 @@
 import pandas as pd
 
 def compute_metrics(df):
-     df.columns = df.columns.str.strip()
+    # Clean column names
+    df.columns = df.columns.str.strip()  # 🔥 removes any extra spaces
+
     # Rename columns for consistency
     df = df.rename(columns={
         'Timestamp': 'Date',
@@ -17,7 +19,7 @@ def compute_metrics(df):
     # Convert defect rate (%) to actual count
     df['Defect_Count'] = (df['Defect_Rate'] / 100) * df['Units_Produced']
 
-    # Optional cost estimate (you can improve this later)
+    # Optional cost estimate (placeholder logic)
     df['Cost'] = df['Energy_Used'] * 0.15  # assume Rs. 0.15 per kWh
 
     # Calculate Energy Efficiency
