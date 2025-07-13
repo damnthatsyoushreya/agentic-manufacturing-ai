@@ -1,7 +1,7 @@
-df.columns = df.columns.str.strip()  # remove extra spaces
 import pandas as pd
 
 def compute_metrics(df):
+     df.columns = df.columns.str.strip()
     # Rename columns for consistency
     df = df.rename(columns={
         'Timestamp': 'Date',
