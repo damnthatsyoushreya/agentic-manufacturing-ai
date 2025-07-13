@@ -10,9 +10,10 @@ uploaded_file = st.file_uploader('📂 Upload a Manufacturing CSV File', type='c
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
+    st.write("🧾 Columns in CSV:", df.columns.tolist())  # 👈 Add this
     st.subheader('📄 Raw Data Sample')
     st.dataframe(df.head())
-
+    
     summary = compute_metrics(df)
     st.subheader('📊 Monthly Metrics Summary')
     st.dataframe(summary)
